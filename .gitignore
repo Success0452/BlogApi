@@ -2,6 +2,8 @@
 /node_modules
 .tsconfig-copy.json
 
+/test
+
 # dotenv environment variable files
 .env
 .env.development.local
