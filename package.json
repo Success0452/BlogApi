@@ -1,0 +1,22 @@
+{
+  "name": "blogapi",
+  "version": "1.0.0",
+  "description": "An api created to make bloggers more flexible in managing blogs",
+  "main": "src/index.ts",
+  "scripts": {
+    "test": "node test/index.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Success0452/BlogApi.git"
+  },
+  "keywords": [
+    "Blog"
+  ],
+  "author": "Olatunde Success",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Success0452/BlogApi/issues"
+  },
+  "homepage": "https://github.com/Success0452/BlogApi#readme"
+}
