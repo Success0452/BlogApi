@@ -96,7 +96,8 @@ Response:
 - These API endpoints provide registration, login, and image upload functionalities for users in your application. Users can register, log in, and upload profile images as needed.
 
 
-`BLOG Route`
+# BLOG Route
+## Please note that all request to be made to the blog route requires a `Bearer Token` which can be gotten only when a user has already registered and is logged in.
 
 ### Retrieve Posts
 - Route: /api/posts
@@ -175,230 +176,281 @@ Response:
 
 `Request Body:`
 
-title (string): The title of the post.
-content (string): The content of the post.
-image (string, optional): The URL of an image associated with the post.
-Response:
+`title (string): The title of the post.`
+`content (string): The content of the post.`
+`image (string, optional): The URL of an image associated with the post.`
 
-msg (string): A message indicating the result of the creation process.
-status (number): The HTTP status code (Accepted - 202) indicating success.
-Update Post
-Route: /api/posts/:postId
-Request Type: PATCH
+### Response:
+
+`msg (string): A message indicating the result of the creation process.`
+`status (number): The HTTP status code (Accepted - 202) indicating success.`
+
+
+##### Update Post
+
+`Route: /api/posts/:postId`
+`Request Type: PATCH`
 Description:
-This endpoint allows users to update a specific post by its ID.
+`This endpoint allows users to update a specific post by its ID.`
 
-Request Body:
+##### Request Body:
 
-content (string): The updated content of the post.
-Parameters:
+`content (string): The updated content of the post.`
 
-postId (string): The ID of the post to update.
-Response:
+`Parameters:`
 
-msg (string): A message indicating the result of the update process.
-status (number): The HTTP status code (Accepted - 202) indicating success.
-Soft Delete Post
-Route: /api/posts/:postId/soft
-Request Type: PATCH
+`postId (string): The ID of the post to update.`
+
+#### Response:
+
+`msg (string): A message indicating the result of the update process.`
+status (number): The HTTP status code (Accepted - 202) indicating success.`
+
+
+### Soft Delete Post
+`Route: /api/posts/:postId/soft`
+`Request Type: PATCH`
+
 Description:
-This endpoint allows users to perform a soft delete on a specific post by its ID. The post will be marked as deleted but not completely removed from the database.
+- This endpoint allows users to perform a soft delete on a specific post by its ID. The post will be marked as deleted but not completely removed from the database.
 
-Request Body:
+#### Request Body:
 
-This endpoint does not require a request body.
+- This endpoint does not require a request body.
 
-Parameters:
+#### Parameters:
 
-postId (string): The ID of the post to soft delete.
+`postId (string): The ID of the post to soft delete.`
+
+#### Response:
+
+`msg (string): A message indicating the result of the soft delete process`
+`status (number): The HTTP status code (Accepted - 202) indicating success.`
+
+
+### Hard Delete Post
+`Route: /api/posts/:postId/hard`
+`Request Type: DELETE`
+
+`Description:`
+- This endpoint allows users to perform a hard delete on a specific post by its ID. The post will be completely removed from the database.
+
+#### Request Body:
+
+### This endpoint does not require a request body.
+
+`Parameters:`
+
+`postId (string): The ID of the post to hard delete.`
+
+#### Response:
+
+`msg (string): A message indicating the result of the hard delete process.`
+`status (number): The HTTP status code (Accepted - 202) indicating success.`
+
+### Upload Post Image
+
+`Route: /api/posts/upload-post-image`
+
+`Request Type: POST`
+`Description:`
+- This endpoint allows users to upload an image associated with a post to the cloud using Cloudinary.
+
+### Request Body:
+
+- This endpoint does not require a request body.
+
+`Response:`
+
+`msg (string): A message indicating the result of the upload process.`
+`status (number): The HTTP status code (Accepted - 202) indicating success.`
+`url (string): The URL of the uploaded image.`
+`public_id (string): The public ID of the uploaded image on Cloudinary.`
+`type (string): The type of the uploaded image.`
+`filename (string): The filename of the uploaded image.`
+
+#### ADMIN Route
+## Please note that all request to be made to the blog route requires a `Bearer Token` which can be gotten only when a user has already registered and is logged in.
+
+## Create Admin
+
+- **Route:** `/api/admin/create`
+- **Request Type:** POST
+- **Description:** This endpoint allows admin users to create a new admin user account. Only admin users can access this endpoint.
+
+**Request Body:**
+
+json
+{
+  "full_name": "string",
+  "username": "string",
+  "email": "string",
+  "password": "string"
+}
+
+
+To format these texts in GitHub README format to make them more readable, you can use Markdown. Here's how you can structure and format the content:
+
+markdown
+Copy code
+## Create Admin
+
+- **Route:** `/api/admin/create`
+- **Request Type:** POST
+- **Description:** This endpoint allows admin users to create a new admin user account. Only admin users can access this endpoint.
+
+**Request Body:**
+
+json
+{
+  "full_name": "string",
+  "username": "string",
+  "email": "string",
+  "password": "string"
+}
 Response:
 
-msg (string): A message indicating the result of the soft delete process.
-status (number): The HTTP status code (Accepted - 202) indicating success.
-Hard Delete Post
-Route: /api/posts/:postId/hard
-Request Type: DELETE
-Description:
-This endpoint allows users to perform a hard delete on a specific post by its ID. The post will be completely removed from the database.
-
-Request Body:
-
-This endpoint does not require a request body.
-
-Parameters:
-
-postId (string): The ID of the post to hard delete.
-Response:
-
-msg (string): A message indicating the result of the hard delete process.
-status (number): The HTTP status code (Accepted - 202) indicating success.
-Upload Post Image
-Route: /api/posts/upload-post-image
-Request Type: POST
-Description:
-This endpoint allows users to upload an image associated with a post to the cloud using Cloudinary.
-
-Request Body:
-
-This endpoint does not require a request body.
-
-Response:
-
-msg (string): A message indicating the result of the upload process.
-status (number): The HTTP status code (Accepted - 202) indicating success.
-url (string): The URL of the uploaded image.
-public_id (string): The public ID of the uploaded image on Cloudinary.
-type (string): The type of the uploaded image.
-filename (string): The filename of the uploaded image.
-
-ADMIN Route
-
-Create Admin
-Route: /api/admin/create
-Request Type: POST
-Description:
-This endpoint allows admin users to create a new admin user account. Only admin users can access this endpoint.
-
-Request Body:
-
-full_name (string): The full name of the new admin user.
-username (string): The username of the new admin user.
-email (string): The email address of the new admin user.
-password (string): The password of the new admin user.
-Response:
-
-msg (string): A message indicating the result of the creation process.
-status (number): The HTTP status code (Accepted - 202) indicating success.
+json
+Copy code
+{
+  "msg": "string",
+  "status": 202
+}
 Post Admin Information
 Route: /api/admin
 Request Type: POST
-Description:
-This endpoint allows admin users to create new blog posts. Only admin users can access this endpoint.
-
+Description: This endpoint allows admin users to create new blog posts. Only admin users can access this endpoint.
 Request Body:
 
-title (string): The title of the blog post.
-content (string): The content of the blog post.
-image (string, optional): The URL of an image associated with the blog post.
+json
+Copy code
+{
+  "title": "string",
+  "content": "string",
+  "image": "string (optional)"
+}
+
 Response:
 
-msg (string): A message indicating the result of the creation process.
-status (number): The HTTP status code (Accepted - 202) indicating success.
+{
+  "msg": "string",
+  "status": 202
+}
 Get All Statistics
 Route: /api/admin
 Request Type: GET
-Description:
-This endpoint allows admin users to retrieve statistics related to the application, including the number of users, blog posts, and comments. Only admin users can access this endpoint.
-
-Request Body:
-
-This endpoint does not require a request body.
+Description: This endpoint allows admin users to retrieve statistics related to the application, including the number of users, blog posts, and comments. Only admin users can access this endpoint.
+Request Body: This endpoint does not require a request body.
 
 Response:
-
-msg (string): A message indicating the result of the retrieval process.
-status (number): The HTTP status code (Accepted - 202) indicating success.
-noOfUser (number): The total number of registered users.
-noOfPost (number): The total number of blog posts.
-noOfComment (number): The total number of comments.
+{
+  "msg": "string",
+  "status": 202,
+  "noOfUser": "number",
+  "noOfPost": "number",
+  "noOfComment": "number"
+}
 Toggle User Post Access
 Route: /api/admin/toggle/:id
 Request Type: POST
-Description:
-This endpoint allows admin users to toggle the post access of a specific user by their ID. If the user's access is toggled, they will be restricted from posting.
-
+Description: This endpoint allows admin users to toggle the post access of a specific user by their ID. If the user's access is toggled, they will be restricted from posting.
 Parameters:
 
 id (string): The ID of the user to toggle.
 Response:
-
-msg (string): A message indicating the result of the toggle process.
-status (number): The HTTP status code (Accepted - 202) indicating success.
+{
+  "msg": "string",
+  "status": 202
+}
 Delete Post
 Route: /api/admin/delete/:postId
 Request Type: DELETE
-Description:
-This endpoint allows admin users to delete a specific post by its ID. Only admin users can access this endpoint.
-
+Description: This endpoint allows admin users to delete a specific post by its ID. Only admin users can access this endpoint.
 Parameters:
 
 postId (string): The ID of the post to delete.
 Response:
-
-msg (string): A message indicating the result of the delete process.
-status (number): The HTTP status code (Accepted - 202) indicating success.
+{
+  "msg": "string",
+  "status": 202
+}
 Please note that these endpoints are restricted to admin users and require proper authentication and authorization to access them.
 
 Comment Route
-
 Retrieve Comments
 Route: /api/posts/:postId/comments
 Request Type: GET
-Description:
-This endpoint allows users to retrieve all comments associated with a specific blog post by its ID.
-
+Description: This endpoint allows users to retrieve all comments associated with a specific blog post by its ID.
 Parameters:
 
 postId (string): The ID of the blog post to retrieve comments for.
 Response:
-
-msg (string): A message indicating the result of the retrieval process.
-status (number): The HTTP status code (OK - 200) indicating success.
-comments (array of objects): An array of comment objects associated with the blog post.
+{
+  "msg": "string",
+  "status": 200,
+  "comments": [array of comment objects]
+}
 Retrieve Specific Comment
 Route: /api/posts/:postId/:commentId
 Request Type: GET
-Description:
-This endpoint allows users to retrieve a specific comment associated with a blog post and comment ID.
-
+Description: This endpoint allows users to retrieve a specific comment associated with a blog post and comment ID.
 Parameters:
 
 postId (string): The ID of the blog post.
 commentId (string): The ID of the comment to retrieve.
 Response:
-
-msg (string): A message indicating the result of the retrieval process.
-status (number): The HTTP status code (OK - 200) indicating success.
-comment (object): The comment object retrieved.
+{
+  "msg": "string",
+  "status": 200,
+  "comment": {object}
+}
 Add Comment
 Route: /api/posts/:postId/comments
 Request Type: POST
-Description:
-This endpoint allows users to add a new comment to a specific blog post by its ID.
+Description: This endpoint allows users to add a new comment to a specific blog post by its ID.
 
-Parameters:
 
-postId (string): The ID of the blog post to add the comment to.
-Request Body:
 
-text (string): The text content of the comment.
-image (string, optional): The URL of an image associated with the comment.
-Response:
+### Parameters:
 
-msg (string): A message indicating the result of the addition process.
-status (number): The HTTP status code (OK - 200) indicating success.
-Update Comment
-Route: /api/posts/:postId/:commentId
-Request Type: PATCH
-Description:
-This endpoint allows users to update the content of a specific comment associated with a blog post and comment ID.
+`postId (string): The ID of the blog post to add the comment to.`
 
-Parameters:
+### Request Body:
 
-postId (string): The ID of the blog post.
-commentId (string): The ID of the comment to update.
-Request Body:
+`text (string): The text content of the comment.`
+`image (string, optional): The URL of an image associated with the comment.`
 
-text (string): The updated text content of the comment.
-Response:
+### Response:
 
-msg (string): A message indicating the result of the update process.
-status (number): The HTTP status code (OK - 200) indicating success.
-Delete Comment
-Route: /api/posts/:postId/:commentId
-Request Type: DELETE
-Description:
-This endpoint allows users to delete a specific comment associated with a blog post and comment ID.
+`msg (string): A message indicating the result of the addition process.`
+`status (number): The HTTP status code (OK - 200) indicating success.`
+
+## Update Comment
+`Route: /api/posts/:postId/:commentId`
+`Request Type: PATCH`
+
+### Description:
+- This endpoint allows users to update the content of a specific comment associated with a blog post and comment ID.
+
+#### Parameters:
+
+`postId (string): The ID of the blog post.`
+`commentId (string): The ID of the comment to update.`
+#### Request Body:
+
+`text (string): The updated text content of the comment.`
+
+#### Response:
+
+`msg (string): A message indicating the result of the update process.`
+`status (number): The HTTP status code (OK - 200) indicating success.`
+
+#### Delete Comment
+- Route: /api/posts/:postId/:commentId
+- Request Type: DELETE
+
+#### Description:
+- This endpoint allows users to delete a specific comment associated with a blog post and comment ID.
 
 `Parameters:`
 
