@@ -5,7 +5,7 @@ If the API requires authentication, obtain an API key or token as per the authen
 
 # Routes
 # BASEURL:
-### https://blog-a2le.onrender.com/
+### https://blog-a2le.onrender.com
 
 `USER ROUTE`
 
