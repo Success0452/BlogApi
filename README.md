@@ -1,5 +1,5 @@
 - 📝 BlogAPI
-- `BASEURL: https://blog-a2le.onrender.com`
+- BASEURL: https://blog-a2le.onrender.com
   
 - A robust and scalable blogging platform with this Node.js project. Powered by TypeScript, PostgreSQL, and Sequelize, it provides a solid foundation for creating and managing blogs. The codebase is organized and thoroughly tested to ensure reliability and maintainability.
 
