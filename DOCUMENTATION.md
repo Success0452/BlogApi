@@ -70,7 +70,7 @@ Response:
 
 
 # BLOG Route
-## Please note that all request to be made to the blog route requires a `Bearer Token` which can be gotten only when a user has already registered and is logged in.
+##### Please note that all request to be made to the blog route requires a `Bearer Token` which can be gotten only when a user has already registered and is logged in.
 
 ### Retrieve Posts
 - Route: /api/posts
@@ -243,7 +243,7 @@ Description:
 `filename (string): The filename of the uploaded image.`
 
 #### ADMIN Route
-## Please note that all request to be made to the blog route requires a `Bearer Token` which can be gotten only when a user has already registered and is logged in.
+##### Please note that all request to be made to the blog route requires a `Bearer Token` which can be gotten only when a user has already registered and is logged in.
 
 ## Create Admin
 
@@ -264,8 +264,6 @@ json
 
 To format these texts in GitHub README format to make them more readable, you can use Markdown. Here's how you can structure and format the content:
 
-markdown
-Copy code
 ## Create Admin
 
 - **Route:** `/api/admin/create`
@@ -274,113 +272,130 @@ Copy code
 
 **Request Body:**
 
-json
-{
+`{
   "full_name": "string",
   "username": "string",
   "email": "string",
   "password": "string"
-}
-Response:
+}`
 
-json
-Copy code
-{
+**Response:**
+
+`{
   "msg": "string",
   "status": 202
-}
-Post Admin Information
-Route: /api/admin
-Request Type: POST
-Description: This endpoint allows admin users to create new blog posts. Only admin users can access this endpoint.
+}`
+
+### Post Admin Information
+- Route: /api/admin
+- Request Type: POST
+### Description: 
+- This endpoint allows admin users to create new blog posts. Only admin users can access this endpoint.
 Request Body:
 
-json
-Copy code
-{
+`{
   "title": "string",
   "content": "string",
   "image": "string (optional)"
-}
+}`
 
-Response:
+**Response:**
 
-{
+`{
   "msg": "string",
   "status": 202
-}
-Get All Statistics
-Route: /api/admin
-Request Type: GET
-Description: This endpoint allows admin users to retrieve statistics related to the application, including the number of users, blog posts, and comments. Only admin users can access this endpoint.
+}`
+
+#### Get All Statistics
+- Route: /api/admin
+- Request Type: GET
+
+### Description: 
+- This endpoint allows admin users to retrieve statistics related to the application, including the number of users, blog posts, and comments. Only admin users can access this endpoint.
 Request Body: This endpoint does not require a request body.
 
-Response:
-{
+**Response:**
+`{
   "msg": "string",
   "status": 202,
   "noOfUser": "number",
   "noOfPost": "number",
   "noOfComment": "number"
-}
-Toggle User Post Access
-Route: /api/admin/toggle/:id
-Request Type: POST
-Description: This endpoint allows admin users to toggle the post access of a specific user by their ID. If the user's access is toggled, they will be restricted from posting.
-Parameters:
+}`
 
-id (string): The ID of the user to toggle.
-Response:
-{
+#### Toggle User Post Access
+- Route: /api/admin/toggle/:id
+- Request Type: POST
+- 
+#### Description: 
+- This endpoint allows admin users to toggle the post access of a specific user by their ID. If the user's access is toggled, they will be restricted from posting.
+  
+**Parameters:**
+
+`id (string): The ID of the user to toggle.`
+**Response:**
+`{
   "msg": "string",
   "status": 202
-}
-Delete Post
-Route: /api/admin/delete/:postId
-Request Type: DELETE
-Description: This endpoint allows admin users to delete a specific post by its ID. Only admin users can access this endpoint.
+}`
+
+### Delete Post
+- Route: /api/admin/delete/:postId
+- Request Type: DELETE
+
+### Description: 
+- This endpoint allows admin users to delete a specific post by its ID. Only admin users can access this endpoint.
 Parameters:
 
-postId (string): The ID of the post to delete.
-Response:
-{
+`postId (string): The ID of the post to delete.`
+
+**Response:**
+`{
   "msg": "string",
   "status": 202
-}
-Please note that these endpoints are restricted to admin users and require proper authentication and authorization to access them.
+}`
 
-Comment Route
-Retrieve Comments
-Route: /api/posts/:postId/comments
-Request Type: GET
-Description: This endpoint allows users to retrieve all comments associated with a specific blog post by its ID.
+**Comment Route**
+
+`Retrieve Comments`
+- Route: /api/posts/:postId/comments
+
+#### Request Type: GET
+### Description: 
+- This endpoint allows users to retrieve all comments associated with a specific blog post by its ID.
 Parameters:
 
-postId (string): The ID of the blog post to retrieve comments for.
-Response:
-{
+`postId (string): The ID of the blog post to retrieve comments for.`
+
+**Response:**
+`{
   "msg": "string",
   "status": 200,
   "comments": [array of comment objects]
-}
-Retrieve Specific Comment
-Route: /api/posts/:postId/:commentId
-Request Type: GET
-Description: This endpoint allows users to retrieve a specific comment associated with a blog post and comment ID.
+}`
+
+#### Retrieve Specific Comment
+- Route: /api/posts/:postId/:commentId
+
+#### Request Type: GET
+#### Description: 
+- This endpoint allows users to retrieve a specific comment associated with a blog post and comment ID.
 Parameters:
 
-postId (string): The ID of the blog post.
-commentId (string): The ID of the comment to retrieve.
-Response:
-{
+`postId (string): The ID of the blog post.`
+`commentId (string): The ID of the comment to retrieve.`
+**Response:**
+`{
   "msg": "string",
   "status": 200,
   "comment": {object}
-}
-Add Comment
-Route: /api/posts/:postId/comments
-Request Type: POST
-Description: This endpoint allows users to add a new comment to a specific blog post by its ID.
+}`
+
+#### Add Comment
+- Route: /api/posts/:postId/comments
+- Request Type: POST
+#### Description: 
+- This endpoint allows users to add a new comment to a specific blog post by its ID.
 
 
 
