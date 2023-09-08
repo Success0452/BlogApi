@@ -5,8 +5,7 @@ import {
     allStatistics,
     deletePost,
     postAdminInfo,
-    toggleUserPostAccess,
-    verifyUser
+    toggleUserPostAccess
 } from '../controller/admin';
 
 import {protect} from '../util/protect'
@@ -24,7 +23,6 @@ class AdminRoute implements IRoute {
         this.router.post(this.path + "/", protect, postAdminInfo);
         this.router.delete(this.path + "/delete/:id", protect, deletePost);
         this.router.patch(this.path + "/:id", protect, toggleUserPostAccess);
-        this.router.patch(this.path + "/verify/:id", protect, verifyUser);
         this.router.get(this.path + "/", protect, allStatistics);
     }
 }
