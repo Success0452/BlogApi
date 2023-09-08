@@ -9,7 +9,6 @@ const compression_1 = __importDefault(require("compression"));
 const loggers_1 = require("../config/loggers");
 const cors_1 = __importDefault(require("cors"));
 const error_handler_1 = __importDefault(require("../middleware/error-handler"));
-const not_found_1 = require("../middleware/not-found");
 const index_1 = require("../config/index");
 const initial_1 = require("../database/initial");
 /* class to initiate express middlewares*/
@@ -32,12 +31,12 @@ class ExpressLoader {
         this.app.use(express_1.default.json());
         this.app.use((0, cors_1.default)(corsOptions));
         this.app.use(error_handler_1.default);
-        this.app.use(not_found_1.NotFound);
+        //   this.app.use(NotFound);
         this.app.use(express_1.default.urlencoded({ extended: true }));
     }
     initializeRoutes(routes) {
         routes.forEach(route => {
-            this.app.use("/api", route.router);
+            this.app.use("/", route.router);
         });
     }
     /* notify user of express start */

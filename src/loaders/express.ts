@@ -38,13 +38,13 @@ export default class ExpressLoader{
           this.app.use(express.json());
           this.app.use(cors(corsOptions));
           this.app.use(errorMiddleware);
-          this.app.use(NotFound);
+        //   this.app.use(NotFound);
           this.app.use(express.urlencoded({ extended: true }));
     }
 
     private initializeRoutes(routes: IRoute[]): void {
         routes.forEach(route => {
-            this.app.use("/api", route.router)
+            this.app.use("/", route.router)
         })
     }  
 

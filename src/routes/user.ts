@@ -11,7 +11,7 @@ const storage = multer.memoryStorage(); // Store the uploaded file in memory
 const upload = multer({ storage: storage });
 
 class UserRoute implements IRoute {
-    public path: string = "/users"
+    public path: string = "/api/users"
     public router: Router = Router()
 
     constructor(){

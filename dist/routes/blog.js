@@ -12,7 +12,7 @@ const storage = multer_1.default.memoryStorage(); // Store the uploaded file in 
 const upload = (0, multer_1.default)({ storage: storage });
 class BlogRoute {
     constructor() {
-        this.path = "/posts";
+        this.path = "/api/posts";
         this.router = (0, express_1.Router)();
         this.initializeRoutes();
     }

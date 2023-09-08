@@ -7,15 +7,15 @@ const pg_1 = require("pg");
 const dialect = 'postgres';
 const sequelize = new sequelize_1.Sequelize({
     dialect,
-    host: 'localhost',
+    host: index_1.DB_HOST,
     port: 5432,
-    username: 'postgres',
-    password: '12345678',
-    database: 'postgres',
+    username: index_1.DB_USER,
+    password: index_1.DB_PASSWORD,
+    database: index_1.DB_NAME,
 });
 exports.client = new pg_1.Client({
     host: index_1.DB_HOST,
-    user: index_1.DB_USERNAME,
+    user: index_1.DB_USER,
     port: 5432,
     password: index_1.DB_PASSWORD,
     database: index_1.DB_NAME

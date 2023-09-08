@@ -8,9 +8,11 @@ const express_1 = __importDefault(require("./loaders/express"));
 const admin_1 = __importDefault(require("./routes/admin"));
 const blog_1 = __importDefault(require("./routes/blog"));
 const user_1 = __importDefault(require("./routes/user"));
+const welcome_1 = __importDefault(require("./routes/welcome"));
 const app = new express_1.default([
     new user_1.default(),
     new blog_1.default(),
     new admin_1.default(),
+    new welcome_1.default()
 ]);
 app.listen();

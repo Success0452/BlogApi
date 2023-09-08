@@ -5,7 +5,7 @@ const admin_1 = require("../controller/admin");
 const protect_1 = require("../util/protect");
 class AdminRoute {
     constructor() {
-        this.path = "/admin";
+        this.path = "/api/admin";
         this.router = (0, express_1.Router)();
         this.initializeRoutes();
     }

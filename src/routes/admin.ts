@@ -11,7 +11,7 @@ import {
 import {protect} from '../util/protect'
 
 class AdminRoute implements IRoute {
-    public path: string = "/admin"
+    public path: string = "/api/admin"
     public router: Router = Router()
 
     constructor(){
