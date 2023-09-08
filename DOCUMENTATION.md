@@ -17,15 +17,12 @@ To install and set up the BlogAPI, follow these steps:
 
 `Install dependencies:`
 
-- Copy code
 - npm install
 - Run tests to ensure functionality:
 
-- Copy code
 - npm test
 - Start the server:
 
-- Copy code
 - npm start
 
 
@@ -33,6 +30,8 @@ To install and set up the BlogAPI, follow these steps:
 If the API requires authentication, obtain an API key or token as per the authentication mechanism used. Include this key or token in the request headers for routes that require authentication.
 
 # Routes
+# BASEURL:
+### https://blog-a2le.onrender.com/
 
 `USER ROUTE`
 
