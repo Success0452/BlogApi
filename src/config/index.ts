@@ -17,7 +17,7 @@ export const {
   EMAIL,
   PORT,
   DB_NAME,
-  DB_USERNAME,
+  DB_USER,
   DB_PASSWORD,
   DB_HOST,
   DB_PORT
