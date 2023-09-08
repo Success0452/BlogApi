@@ -1,30 +1,4 @@
 # Getting Started
-## Prerequisites
-- Before using the BlogAPI, make sure you have the following prerequisites in place:
-
-Node.js and npm or yarn installed on your system.
-PostgreSQL database configured and running.
-Installation
-To install and set up the BlogAPI, follow these steps:
-
-`Clone the repository:`
-
-- Copy code
-- git clone https://github.com/Success0452/BlogApi.git
-
-- cd blogapi
-- Configure environment variables by creating a .env file with the necessary settings.
-
-`Install dependencies:`
-
-- npm install
-- Run tests to ensure functionality:
-
-- npm test
-- Start the server:
-
-- npm start
-
 
 ## Authentication
 If the API requires authentication, obtain an API key or token as per the authentication mechanism used. Include this key or token in the request headers for routes that require authentication.
